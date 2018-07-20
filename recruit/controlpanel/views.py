@@ -17,7 +17,7 @@ def login(request):
 	if request.method == "POST":
 		username = request.POST['UserName']
 		password = request.POST['Password']
-		user = authenticate(request, username=username, password=password)
+		user = authenticate(username=username, password=password)
 		if user is not None:
 			auth_login(request, user)
 			return HttpResponseRedirect("/controlpanel")
