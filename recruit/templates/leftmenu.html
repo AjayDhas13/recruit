@@ -1,0 +1,9 @@
+<div class="col-sm-3 col-md-2 sidebar">
+  <ul class="nav nav-sidebar">
+    <li><a href="/applicants">New Application</a></li>
+    <li><a href="/applicants/track">Track Applications</a></li>
+    {% if user.is_authenticated %}
+    	<li><a href="/controlpanel">View Applications</a></li>
+    {% endif %}
+  </ul>
+</div>

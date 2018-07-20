@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-6">
+	<form name="frmTrack" method="POST" action=".">
+		{% csrf_token %}
+		<label for="ref_id">Reference Number:</label>
+		<input type="text" id="ref_id" name="ref_id" class="form-control"><br>
+		<button type="submit" class="btn btn-primary">Track</button>
+	</form>
+</div>
+{% endblock %}

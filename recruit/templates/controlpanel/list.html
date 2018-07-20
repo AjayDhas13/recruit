@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-md-12">
+	<h3>List of Applications</h3>
+	<table class="table table-bordered">
+		<thead>
+			<tr>
+				<th>S.No</th>
+				<th>Name</th>
+				<th>Email</th>
+				<th>DOB</th>
+				<th>Gender</th>
+				<th>Status</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for itm in applicationList %}
+			<tr>
+				<td>{{forloop.counter}}</td>
+				<td>{{itm.name}}</td>
+				<td>{{itm.email}}</td>
+				<td>{{itm.date_of_birth}}</td>
+				<td>{{itm.gender}}</td>
+				<td>
+					{% if itm.status == 0 %}
+						Submitted
+					{% elif itm.status == 1 %}
+						Viewed
+					{% elif itm.status == 2 %}
+						Accepted
+					{% else %}
+						Rejected
+					{% endif %}
+				</td>
+				<td>
+					<a href="/controlpanel/view/{{itm.ref_id}}" id="btnView" class="btn btn-sm btn-primary">View</a>
+					<a href="/controlpanel/accept/{{itm.ref_id}}" id="btnAccept" class="btn btn-sm btn-success">Accept</a>
+					<a href="/controlpanel/reject/{{itm.ref_id}}" id="btnReject" class="btn btn-sm btn-danger">Reject</a>
+					<a href="/controlpanel/download/{{itm.ref_id}}" id="btnDownload" target="_blank" class="btn btn-sm btn-primary">Download</a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
