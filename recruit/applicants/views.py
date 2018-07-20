@@ -33,6 +33,9 @@ def home(request):
 				objModel.profile = fname
 				if ext[1:] in ['pdf']:
 					sourceDir = settings.PROFILE_PATH
+					if not os.path.exists(sourceDir):
+						os.makedirs(sourceDir)
+
 					handle_uploaded_file(file, fname, sourceDir)
 				else:
 					messages.add_message(request, messages.WARNING, u"Only PDF Files are supported!..")
