@@ -36,8 +36,12 @@
 				</td>
 				<td>
 					<a href="/controlpanel/view/{{itm.ref_id}}" id="btnView" class="btn btn-sm btn-primary">View</a>
+					{% if itm.status != 2 %}
 					<a href="/controlpanel/accept/{{itm.ref_id}}" id="btnAccept" class="btn btn-sm btn-success">Accept</a>
+					{% endif %}
+					{% if itm.status != 3 %}
 					<a href="/controlpanel/reject/{{itm.ref_id}}" id="btnReject" class="btn btn-sm btn-danger">Reject</a>
+					{% endif %}
 					<a href="/controlpanel/download/{{itm.ref_id}}" id="btnDownload" target="_blank" class="btn btn-sm btn-primary">Download</a>
 				</td>
 			</tr>
